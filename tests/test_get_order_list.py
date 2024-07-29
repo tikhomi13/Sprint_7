@@ -31,10 +31,10 @@ class TestGetOrdersList:
 
         url_get_order_details = f'{Endpoints.ORDERS_LIST}/track?t={track_number}'  # передаем трек-номер созданного заказа для получения id заказа
         response_get_details = requests.get(url_get_order_details)
-        print(response_get_details.json())
+        print(response_get_details.json())              # ЭТО ВЕРНЫЙ ЗАКАЗ
 
         order_id = response_get_details.json()['order']['id']
-        print(order_id)
+        print(order_id)   # ЭТО ID ЗАКАЗА
 
         url_accept_order = f'{Endpoints.ORDERS_LIST}/accept/{order_id}?courierId={courier_id}'
         response_give_order_to_courier = requests.put(url_accept_order)
